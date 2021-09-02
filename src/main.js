@@ -25,19 +25,19 @@ function liAdder(val) {
   document.querySelector('#ul').append(li);
 }
 
-function storageSet(arr){
+function storageSet(arr) {
   const str = JSON.stringify(arr);
   localStorage.setItem('list', str);
 }
 
-function storageGet(arr){
+function storageGet() {
   const getStr = localStorage.getItem('list');
-  arr = JSON.parse(getStr);
+  const arr = JSON.parse(getStr);
   const val = document.querySelector('#input').value;
   console.log('VAL', val, '|||||||||');
   const trimmed = val.trim();
   console.log('trim', trimmed, '|||||||||');
-  if (trimmed !== ''){
+  if (trimmed !== '') {
     arr.push(trimmed);
   }
   return arr;
@@ -46,11 +46,11 @@ function storageGet(arr){
 function sortFunc() {
   const items = document.querySelectorAll('#ul li');
   let arr = [];
-  if (localStorage.getItem('list')){
-    arr = storageGet(arr);
+  if (localStorage.getItem('list')) {
+    arr = storageGet();
   }
 
-  if(!localStorage.getItem('list')){
+  if (!localStorage.getItem('list')) {
     for (let i = 0; i < items.length; i += 1) {
       arr.push(items[i].innerHTML);
     }
@@ -89,7 +89,7 @@ function listMaker() {
 document.addEventListener('DOMContentLoaded', function () {
   // localStorage.clear();
   listMaker();
-  if (localStorage.getItem('list')){
+  if (localStorage.getItem('list')) {
     sortFunc();
   }
 });
