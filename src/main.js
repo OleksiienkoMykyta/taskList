@@ -76,8 +76,8 @@ function listMaker() {
     }
   });
 
-  document.querySelector('#input').addEventListener('keypress', () => {
-    if (event.keyCode === 13) {
+  document.querySelector('#input').addEventListener('keypress', (e) => {
+    if (e.keyCode === 13) {
       if (document.querySelector('#input').value !== '') {
         liAdder(document.querySelector('#input').value);
         sortFunc();
