@@ -34,9 +34,7 @@ function storageGet() {
   const getStr = localStorage.getItem('list');
   const arr = JSON.parse(getStr);
   const val = document.querySelector('#input').value;
-  console.log('VAL', val, '|||||||||');
   const trimmed = val.trim();
-  console.log('trim', trimmed, '|||||||||');
   if (trimmed !== '') {
     arr.push(trimmed);
   }
